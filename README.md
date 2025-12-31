@@ -13,4 +13,3 @@ The project has been structured to reflect real-world backend system design prac
 This system demonstrates strong understanding of database management systems, backend development principles, and system design concepts, making it suitable for academic evaluation as well as technical interviews.
 
 Future improvements may include advanced analytics, AI-based symptom analysis, enhanced security features, and cloud-based deployment for scalability.
-ows
