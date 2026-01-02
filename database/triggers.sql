@@ -13,3 +13,19 @@ BEFORE INSERT ON payments
 FOR EACH ROW
 EXECUTE FUNCTION set_default_payment_status();
 
+
+CREATE OR REPLACE FUNCTION set_doctor_busy()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE doctors
+    SET status = 'busy'
+    WHERE doctor_id = NEW.doctor_id;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER doctor_busy_trigger
+AFTER INSERT ON appointments
+FOR EACH ROW
+EXECUTE FUNCTION set_doctor_busy();
