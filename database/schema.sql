@@ -26,3 +26,12 @@ CREATE TABLE appointments (
     FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id)
 );
 
+CREATE TABLE payments (
+    payment_id SERIAL PRIMARY KEY,
+    appointment_id INTEGER,
+    amount DECIMAL(10,2),
+    payment_method VARCHAR(50),
+    payment_status VARCHAR(20),
+
+    FOREIGN KEY (appointment_id) REFERENCES appointments(appointment_id)
+);
